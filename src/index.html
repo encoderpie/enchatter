@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENChatter</title>
+  <script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button onclick="logout()">logout</button>
+  <div id="chat"></div>
+  <input id="user_input_message" type="text" placeholder="Enter message">
+  <button onclick="sendMessage()" id="user_message_send">send</button>
+  <script src="../dist/tmi.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

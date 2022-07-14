@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with twitch</title>
+</head>
+<body>
+    Go to https://twitchapps.com/tmi/, click the connect button, (login if necessary) paste the verification text in front of you in the password section
+
+    <input type="text" id="username" placeholder="Twitch username">
+    <input type="text" id="password" placeholder="authorization code here -> https://twitchapps.com/tmi/">
+    
+    <button onclick="saveLoginDatas()">save</button>
+    <p id="error"></p>
+    <script>
+        function saveLoginDatas() {
+            console.log(document.getElementById('username').value)
+            let username = document.getElementById('username').value
+            let password = document.getElementById('password').value
+            if (username && password) {
+                window.localStorage.username = username
+                window.localStorage.password = password
+                let params = (new URL(document.location)).searchParams
+	            window.location.href = params.get("path") + "/src/index.html"
+            } else {
+                document.getElementById('error').innerText = "Please enter your username or authorization code"
+            }
+        }
+    </script>
+</body>
+</html>
